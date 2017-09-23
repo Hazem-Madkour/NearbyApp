@@ -177,11 +177,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        if (adapter == null) {
-            adapter = new AdapterRecycleVenues(this, data);
-            mRecyclerView.setAdapter(adapter);
-        }
-        adapter.mCursorAdapter.swapCursor(data);
+        adapter = new AdapterRecycleVenues(this, data);
+        mRecyclerView.setAdapter(adapter);
         viewModel.setDataExist(adapter.mCursorAdapter.getCount() > 0);
     }
 
